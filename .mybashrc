@@ -1,0 +1,22 @@
+alias su='sudo -s'
+alias sudo='sudo '
+alias vi=gvim
+alias vib='vi ~/.bashrc'
+alias sob='. ~/.bashrc'
+alias viv='vi ~/.vim/vimrc'
+alias apt-get='sudo apt-get '
+alias aptgetinstall='sudo apt-get install '
+alias synaptic='sudo synaptic'
+alias cp='cp -v'
+alias q='exit'
+alias :q='exit'
+
+# some more ls aliases
+alias ls='ls --color=auto -CF'
+alias ll='ls -ClF'
+alias lla='ls -CalF'
+alias la='ls -ACF'
+alias l='ls -CF'
+
+PS1='\[\e[32m\]\u =w= \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]' 
+

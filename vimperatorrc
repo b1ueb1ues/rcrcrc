@@ -1,0 +1,24 @@
+"3.10.1 (created: 2015/08/25 00:41:59)
+
+highlight Hint font-family: monospace; font-size: 15px; font-weight: bold; text-transform: uppercase; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
+highlight HintElem background-color: white;  color: black;
+nnoremap j <C-d>
+nnoremap k <C-u>
+nnoremap h <C-p>
+nnoremap l <C-n>
+nnoremap e F
+nnoremap u <C-o>
+nnoremap <C-r> <C-i>
+nnoremap w <C-i>
+nnoremap H h
+nnoremap L l
+nnoremap <C-h> h
+nnoremap <C-l> l
+nnoremap q d<Space>
+nnoremap x d
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+set hinttimeout=500
+set scroll=10
+source! /home/bblues/.vimperatorrc.local
+
+" vim: set ft=vimperator:

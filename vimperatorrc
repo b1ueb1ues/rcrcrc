@@ -7,18 +7,17 @@ nnoremap k <C-u>
 nnoremap h <C-p>
 nnoremap l <C-n>
 nnoremap e F
-nnoremap u <C-o>
 nnoremap <C-r> <C-i>
 nnoremap w <C-i>
 nnoremap H h
 nnoremap L l
 nnoremap <C-h> h
 nnoremap <C-l> l
-nnoremap q d<Space>
+nnoremap q d
 nnoremap x d
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
 set hinttimeout=500
-set scroll=10
+set scroll=20
 source! /home/bblues/.vimperatorrc.local
 
 " vim: set ft=vimperator:

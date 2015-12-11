@@ -41,7 +41,6 @@ imap <c-v> <esc>"+<s-p>
 nmap k gk
 nmap j gj
 nmap <space> :
-imap kj <ESC>
 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k

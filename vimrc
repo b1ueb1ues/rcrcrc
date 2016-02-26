@@ -33,11 +33,10 @@ se magic
 	se noerrorbells
 	se novisualbell
 "}}}
-
 "keymap {{{
 vmap <c-c> "+y
-nmap <c-v> <esc>"+<s-p>
-imap <c-v> <esc>"+<s-p>
+nmap <c-v> "+<s-p>
+imap <c-v> <esc>"+p
 nmap k gk
 nmap j gj
 nmap <space> :
@@ -54,8 +53,9 @@ imap <a-u> <esc>gUaw
 
 
 nmap <f5> :nohl<return>
-nmap <leader>p :w !python<return>
-
+nmap <leader>p :w !python<cr>
+nmap <leader>w :w<cr>
+nmap <leader>q :wq<cr>
 "}}}
 
 "hl tab i so wild{{{

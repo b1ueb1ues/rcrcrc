@@ -1,3 +1,5 @@
+set -o vi 
+alias n='nohup '
 alias su='sudo -s'
 alias sudo='sudo '
 alias vi=gvim
@@ -11,13 +13,14 @@ alias cp='cp -v'
 alias u='cd ..'
 alias q='exit'
 alias :q='exit'
+alias ipforward='cd /proc/sys/net/ipv4/'
 
 # some more ls aliases
-alias ls='ls --color=auto -CF'
-alias ll='ls -ClF'
-alias lla='ls -CalF'
-alias la='ls -ACF'
-alias l='ls -CF'
+alias ls='ls --color=auto -CFh'
+alias ll='ls -ClFh'
+alias lla='ls -CalFh'
+alias la='ls -ACFh'
+alias l='ls -CFh'
 
-PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]' 
-
+#PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]' 
+PATH=~/bin:$PATH

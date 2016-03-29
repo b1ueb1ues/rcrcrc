@@ -49,7 +49,8 @@ nmap <a-k> <c-w>j
 nmap <a-i> <c-w>k
 nmap <a-j> <c-w>h
 nmap <a-l> <c-w>l
-imap <a-u> <esc>gUaw
+imap <a-u> <esc>gUawea
+nmap U gUaw
 
 
 nmap <f5> :nohl<return>
@@ -108,6 +109,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'fidian/hexmode'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'scrooloose/syntastic'

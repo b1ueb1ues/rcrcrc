@@ -1,5 +1,4 @@
 set -o vi 
-alias n='nohup '
 alias su='sudo -s'
 alias sudo='sudo '
 alias vi=gvim
@@ -15,7 +14,12 @@ alias q='exit'
 alias :q='exit'
 alias catipforward='cat /proc/sys/net/ipv4/ip_forward'
 alias setipforward='sudo echo 1 > /proc/sys/net/ipv4/ip_forward'
-alias unsetipforward='sudo echo 0 > /proc/sys/net/ipv4/ip_forward'
+alias usetipforward='sudo echo 0 > /proc/sys/net/ipv4/ip_forward'
+
+alias c='cat /proc/sys/net/ipv4/ip_forward'
+alias us='sudo echo 0 > /proc/sys/net/ipv4/ip_forward'
+alias s='sudo echo 1 > /proc/sys/net/ipv4/ip_forward'
+
 
 # some more ls aliases
 alias ls='ls --color=auto -CFh'
@@ -25,4 +29,8 @@ alias la='ls -ACFh'
 alias l='ls -CFh'
 
 #PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]' 
+
 PATH=~/bin:$PATH
+PATH=$PATH:/home/bblues/Android/Sdk/tools
+PATH=$PATH:/home/bblues/Android/Sdk/platform-tools
+

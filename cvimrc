@@ -1,0 +1,13 @@
+map j scrollPageDown
+map k scrollPageUp
+map o t
+map f F
+map l K
+map h J
+map L scrollRight
+map H scrollLeft
+map u goBack
+map <c-r> goForward
+map d closeTab
+map r lastClosedTab
+let hingcharacters="jfkdlsjfauiorew"

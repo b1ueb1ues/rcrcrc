@@ -10,4 +10,4 @@ map u goBack
 map <c-r> goForward
 map d closeTab
 map r lastClosedTab
-let hingcharacters="jfkdlsjfauiorew"
+let hintcharacters="jfkdlsjfauiorew"

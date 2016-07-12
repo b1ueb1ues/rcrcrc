@@ -1,6 +1,6 @@
-set -o vi 
-alias su='sudo -s'
+set -o vi
 alias sudo='sudo '
+#alias su='sudo -s'
 alias vi=gvim
 alias vib='vi ~/.mybashrc'
 alias sob='. ~/.mybashrc'
@@ -28,9 +28,10 @@ alias lla='ls -CalFh'
 alias la='ls -ACFh'
 alias l='ls -CFh'
 
-#PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]' 
+#PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]'
 
 PATH=~/bin:$PATH
-PATH=$PATH:/home/bblues/Android/Sdk/tools
-PATH=$PATH:/home/bblues/Android/Sdk/platform-tools
+PATH=$PATH:/opt/Android/sdk/tools
+PATH=$PATH:/opt/Android/sdk/platform-tools
+PATH=$PATH:/opt/android-studio/bin
 

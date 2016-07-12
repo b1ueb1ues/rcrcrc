@@ -2,7 +2,7 @@ se nocp "nocompatible
 colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
 "se go=
-"se guifont=Monospace\ 12
+"se guifont=Monospace\ 13
 se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se laststatus=2
@@ -51,6 +51,7 @@ nmap <a-j> <c-w>h
 nmap <a-l> <c-w>l
 imap <a-u> <esc>gUawea
 nmap U gUaw
+nmap qq <esc>
 
 
 nmap <f5> :nohl<return>
@@ -110,6 +111,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'fidian/hexmode'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'scrooloose/syntastic'
@@ -156,7 +158,8 @@ filetype plugin indent on    " required
 
 "{{{ airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#trailing_format = 'w_t[%s]'
+let g:airline#extensions#whitespace#enabled = 0
+"let g:airline#extensions#whitespace#trailing_format = 'w_t[%s]'
 let g:airline#extensions#tagbar#enabled = 1
 
 let g:airline#extensions#tabline#enabled = 1
@@ -181,7 +184,6 @@ let g:airline#extensions#tagbar#flags = 's'
 let g:tagbar_left=1
 let g:tagbar_width=20
 "}}}
-"
 "{{{ YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 

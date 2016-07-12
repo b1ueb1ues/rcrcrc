@@ -1,8 +1,8 @@
-"3.11.3 (created: 2016/01/30 14:42:44)
+"3.14.0 (created: 2016/06/07 23:58:16)
 
 highlight Hint font-family: monospace; font-size: 15px; font-weight: bold; text-transform: uppercase; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 highlight HintElem background-color: white;  color: black;
-
+nmap s :tabopen<Space>google.com<Return>
 nnoremap j <C-d>
 nnoremap k <C-u>
 nnoremap h <C-p>
@@ -19,8 +19,7 @@ nnoremap x d
 nnoremap o t
 nnoremap u <C-o>
 nnoremap U u
-
-set defsearch=bing
+nnoremap r u
 set hintchars=jfkdhgurlsieow;a
 set hinttimeout=500
 set scroll=20

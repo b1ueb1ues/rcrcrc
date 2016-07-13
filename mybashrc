@@ -30,7 +30,7 @@ alias l='ls -CFh'
 
 #PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]'
 
-PATH=~/bin:$PATH
+PATH=~/bin:/sbin:$PATH
 PATH=$PATH:/opt/Android/sdk/tools
 PATH=$PATH:/opt/Android/sdk/platform-tools
 PATH=$PATH:/opt/android-studio/bin

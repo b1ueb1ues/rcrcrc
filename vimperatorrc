@@ -1,5 +1,6 @@
 "3.14.0 (created: 2016/06/07 23:58:16)
 
+command! bing se ds=bing
 command! google se ds=google
 highlight Hint font-family: monospace; font-size: 15px; font-weight: bold; text-transform: uppercase; color: white; background-color: red; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 1px 0px 1px; 
 highlight HintElem background-color: white;  color: black;
@@ -21,7 +22,7 @@ nnoremap o t
 nnoremap u <C-o>
 nnoremap U u
 nnoremap r u
-set defsearch=bing
+set defsearch=google
 set hintchars=jfkdhgurlsieow;a
 set hinttimeout=500
 set scroll=20

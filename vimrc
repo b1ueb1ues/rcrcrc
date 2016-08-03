@@ -4,7 +4,8 @@ colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
 "se go=
 "se guifont=Monospace\ 13
-se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+"se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+se guifont=DejaVu\ Sans\ Mono\ Book\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
@@ -125,6 +126,7 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'sjl/gundo.vim'
+Plugin 'lilydjwg/fcitx.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -178,10 +180,10 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 let g:airline_section_c=''
 let g:airline#extensions#tagbar#flags = 's'
-"let g:airline_left_sep=' '
-"let g:airline_left_alt_sep='|'
-"let g:airline_right_sep=' '
-"let g:airline_right_alt_sep='|'
+let g:airline_left_sep=' '
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=' '
+let g:airline_right_alt_sep='|'
 "}}}
 "{{{neocomplete
 "let g:neocomplete#enable_at_startup = 1

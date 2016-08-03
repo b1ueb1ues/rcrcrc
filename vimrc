@@ -1,10 +1,12 @@
 se nocp "nocompatible
+
 colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
 "se go=
 "se guifont=Monospace\ 13
 se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
+se encoding=utf-8
 se laststatus=2
 "autocmd bufwritepost .vimrc source $MYVIMRC
 nmap <leader>s :so $MYVIMRC<return>
@@ -32,6 +34,7 @@ se magic
 "nobell
 	se noerrorbells
 	se novisualbell
+	se belloff=all
 "}}}
 "keymap {{{
 vmap <c-c> "+y
@@ -45,13 +48,15 @@ nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
-nmap <a-k> <c-w>j
-nmap <a-i> <c-w>k
-nmap <a-j> <c-w>h
-nmap <a-l> <c-w>l
 imap <a-u> <esc>gUawea
 nmap U gUaw
 nmap qq <esc>
+
+nmap <a-j> 3j
+nmap <a-k> 3k
+
+nmap <a-d> <c-d>
+nmap <a-u> <c-u>
 
 
 nmap <f5> :nohl<return>

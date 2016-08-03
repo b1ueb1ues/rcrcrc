@@ -22,7 +22,6 @@ nnoremap o t
 nnoremap u <C-o>
 nnoremap U u
 nnoremap r u
-set defsearch=google
 set hintchars=jfkdhgurlsieow;a
 set hinttimeout=500
 set scroll=20

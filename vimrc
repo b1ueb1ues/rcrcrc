@@ -50,7 +50,10 @@ nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 imap <a-u> <esc>gUawea
 nmap U gUaw
+
 nmap qq <esc>
+nmap q: <esc>:
+nmap g: :<c-f>
 
 nmap <a-j> 3j
 nmap <a-k> 3k
@@ -191,5 +194,6 @@ let g:tagbar_width=20
 "}}}
 "{{{ YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_disable_for_files_larger_than_kb = 1000
 
 "}}}

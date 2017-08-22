@@ -39,8 +39,10 @@ se magic
 "}}}
 "keymap {{{
 vmap <c-c> "+y
-nmap <c-v> "+<s-p>
+nmap <c-v> "+p
 imap <c-v> <esc>"+p
+nnoremap vv <c-v>
+vnoremap vv <c-v>
 nmap k gk
 nmap j gj
 nmap <space> :
@@ -54,19 +56,27 @@ nmap U gUaw
 
 nmap qq <esc>
 nmap q: <esc>:
+nmap Q <esc>
 nmap g: :<c-f>
 
 nmap <a-j> 3j
 nmap <a-k> 3k
+vmap <a-j> 3j
+vmap <a-k> 3k
+imap <a-j> <esc>
+imap <a-c> <esc>
+imap <a-f> <esc>
+imap <a-v> <esc>
 
 nmap <a-d> <c-d>
 nmap <a-u> <c-u>
 
 
+
 nmap <f5> :nohl<return>
 nmap <leader>p :w !python<cr>
 nmap <leader>w :w<cr>
-nmap <leader>q :wq<cr>
+"nmap <leader>q :wq<cr>
 "}}}
 
 "hl tab i so wild{{{
@@ -107,6 +117,7 @@ if has("gui_running")
 endif
 "}}}
 
+
 "{{{  vundle
 filetype off                  " required
 
@@ -124,7 +135,7 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'scrooloose/syntastic'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'sjl/gundo.vim'
 Plugin 'lilydjwg/fcitx.vim'
 " The following are examples of different formats supported.
@@ -197,5 +208,4 @@ let g:tagbar_width=20
 "{{{ YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_disable_for_files_larger_than_kb = 1000
-
 "}}}

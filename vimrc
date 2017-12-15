@@ -10,9 +10,11 @@ se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir
-"autocmd bufwritepost .vimrc source $MYVIMRC
+autocmd BufEnter * setlocal fo-=o
 
-
+" ./ tells Vim to use the directory of the current file rather than Vim's working directory. 
+" The last semicolon indicate find tags in parents dir
+se tags=./tags;,./TAGS;
 
 "source $VIMRUNTIME/vimrc_example.vim
 "se paste "paste with no indent

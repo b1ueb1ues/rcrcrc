@@ -69,6 +69,7 @@ nmap <a-k> 3k
 vmap <a-j> 3j
 vmap <a-k> 3k
 imap <a-j> <esc>
+imap <a-k> <esc>
 imap <a-c> <esc>
 imap <a-f> <esc>
 imap <a-v> <esc>

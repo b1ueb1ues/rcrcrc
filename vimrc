@@ -9,8 +9,9 @@ se guifont=DejaVu\ Sans\ Mono\ Book\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
+se autochdir
 "autocmd bufwritepost .vimrc source $MYVIMRC
-nmap <leader>s :so $MYVIMRC<return>
+
 
 
 "source $VIMRUNTIME/vimrc_example.vim
@@ -45,7 +46,7 @@ nnoremap vv <c-v>
 vnoremap vv <c-v>
 nmap k gk
 nmap j gj
-nmap <space> :
+nnoremap <space> :
 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
@@ -57,7 +58,8 @@ nmap U gUaw
 nmap qq <esc>
 nmap q: <esc>:
 nmap Q <esc>
-nmap g: :<c-f>
+"nmap g: :<c-f>
+nmap :: :<c-f>
 
 nmap <a-j> 3j
 nmap <a-k> 3k
@@ -76,6 +78,7 @@ nmap <a-u> <c-u>
 nmap <f5> :nohl<return>
 nmap <leader>p :w !python<cr>
 nmap <leader>w :w<cr>
+nmap <leader>s :so $MYVIMRC<return>
 "nmap <leader>q :wq<cr>
 "}}}
 
@@ -129,15 +132,17 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'bling/vim-airline'
 Plugin 'fidian/hexmode'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'klen/python-mode'
 "Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'sjl/gundo.vim'
 Plugin 'lilydjwg/fcitx.vim'
+Plugin 'git://github.com/will133/vim-dirdiff'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo

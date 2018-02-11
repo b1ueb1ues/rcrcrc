@@ -43,7 +43,7 @@ se magic
 "keymap {{{
 vmap <c-c> "+y
 nmap <c-c> :%y+<cr>
-nmap <c-v> "+p
+nmap <c-v> o<esc>"+p
 imap <c-v> <esc>"+p
 nnoremap vv <c-v>
 vnoremap vv <c-v>

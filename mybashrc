@@ -1,6 +1,7 @@
 set -o vi
 alias sudo='sudo '
 #alias su='sudo -s'
+alias py='python'
 alias vi=gvim
 alias vib='vi ~/.mybashrc'
 alias sob='. ~/.mybashrc'
@@ -31,7 +32,9 @@ alias l='ls -CFh'
 #PS1='\[\e[32m\]\u (￣▽￣") \[\e[33m\]\w\[\e[35m\] \n\$ \[\e[0m\]'
 
 PATH=~/bin:/sbin:/usr/sbin:$PATH
+PATH=/opt/opengrok/bin:$PATH
 PATH=$PATH:/opt/Android/sdk/tools
 PATH=$PATH:/opt/Android/sdk/platform-tools
 PATH=$PATH:/opt/android-studio/bin
 
+export OPENGROK_SRC_ROOT=/home/bblues/d/src-root

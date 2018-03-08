@@ -16,6 +16,7 @@ autocmd BufEnter * setlocal fo-=o
 " The last semicolon indicate find tags in parents dir
 se tags=./tags;,./TAGS;
 
+
 "source $VIMRUNTIME/vimrc_example.vim
 "se paste "paste with no indent
 se foldmethod=marker
@@ -41,6 +42,8 @@ se magic
 	se belloff=all
 "}}}
 "keymap {{{
+
+nmap <a-w> <c-w>
 vmap <c-c> "+y
 nmap <c-c> :%y+<cr>
 nmap <c-v> o<esc>"+p
@@ -51,10 +54,6 @@ nmap k gk
 nmap j gj
 nnoremap <space> :
 
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
 imap <a-u> <esc>gUawea
 nmap U gUaw
 
@@ -62,7 +61,9 @@ nmap qq <esc>
 nmap q: <esc>:
 nmap Q <esc>
 "nmap g: :<c-f>
-nmap :: :<c-f>
+"nmap :: :<c-f>
+"nnoremap <space><cr> :<up><cr>
+nmap <leader>. :<up><cr>
 
 nmap <a-j> 3j
 nmap <a-k> 3k

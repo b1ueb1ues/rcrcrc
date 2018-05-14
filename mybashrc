@@ -37,5 +37,6 @@ PATH=/opt/opengrok/bin:$PATH
 PATH=$PATH:/opt/Android/sdk/tools
 PATH=$PATH:/opt/Android/sdk/platform-tools
 PATH=$PATH:/opt/android-studio/bin
+#PATH=/opt/lede/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_uClibc/bin:$PATH
 
 export OPENGROK_SRC_ROOT=/home/bblues/d/src-root

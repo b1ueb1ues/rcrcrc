@@ -43,37 +43,42 @@ se magic
 "}}}
 "keymap {{{
 
+let mapleader=" " 
+nmap <leader>p :w !python<cr>
+nmap <leader>l :w !lua<cr>
+nmap <leader>w :w<cr>
+nmap <leader>. :<up><cr>
+nmap <leader>s :so $MYVIMRC<return>
+nmap <leader>; :
+"nmap <leader>q :wq<cr>
+
 nmap <a-w> <c-w>
+
 vmap <c-c> "+y
 nmap <c-c> :%y+<cr>
-nmap <c-v> o<esc>"+p
 imap <c-v> <esc>"+p
+nmap <c-v> o<esc>"+p
+
 nnoremap vv <c-v>
 vnoremap vv <c-v>
+
 nmap k gk
 nmap j gj
-nnoremap <space> :
-
-imap <a-u> <esc>gUawea
 nmap U gUaw
-
 nmap qq <esc>
 nmap q: <esc>:
+nmap q/ <esc>/
 nmap Q <esc>
+nmap ZQ <esc>
+nmap ZZ <esc>
 "nmap g: :<c-f>
 "nmap :: :<c-f>
 "nnoremap <space><cr> :<up><cr>
-nmap <leader>. :<up><cr>
 
 nmap <a-j> 3j
 nmap <a-k> 3k
 vmap <a-j> 3j
 vmap <a-k> 3k
-imap <a-j> <esc>
-imap <a-k> <esc>
-imap <a-c> <esc>
-imap <a-f> <esc>
-imap <a-v> <esc>
 
 nmap <a-d> <c-d>
 nmap <a-u> <c-u>
@@ -81,10 +86,17 @@ nmap <a-u> <c-u>
 
 
 nmap <f5> :nohl<return>
-nmap <leader>p :w !python<cr>
-nmap <leader>w :w<cr>
-nmap <leader>s :so $MYVIMRC<return>
-"nmap <leader>q :wq<cr>
+
+imap <a-u> <esc>gUawea
+imap <a-j> <esc>
+imap <a-k> <esc>
+
+imap <a-o> <esc>
+nmap <a-o> o
+
+imap <a-c> <esc>
+imap <a-f> <esc>
+imap <a-v> <esc>
 "}}}
 
 "hl tab i so wild{{{
@@ -137,6 +149,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'suan/vim-instant-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 Plugin 'bling/vim-airline'
 Plugin 'fidian/hexmode'
@@ -218,4 +234,8 @@ let g:tagbar_width=20
 "{{{ YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_disable_for_files_larger_than_kb = 1000
+"}}}
+
+"{{{
+let g:instant_markdown_autostart = 0
 "}}}

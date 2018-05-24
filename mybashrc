@@ -6,6 +6,7 @@ alias vi=gvim
 alias vib='vi ~/.mybashrc'
 alias sob='. ~/.mybashrc'
 alias viv='vi ~/.vim/vimrc'
+alias vinv='nvim ~/.config/nvim/init.vim'
 alias apt-get='sudo apt-get '
 alias aptgetinstall='sudo apt-get install '
 alias synaptic='sudo synaptic'

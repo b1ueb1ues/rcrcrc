@@ -9,7 +9,8 @@ se guifont=DejaVu\ Sans\ Mono\ Book\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
-se autochdir
+se autochdir "chdir when edit file
+se dir=~/.vim/swp,~/tmp
 autocmd BufEnter * setlocal fo-=o
 
 " ./ tells Vim to use the directory of the current file rather than Vim's working directory. 
@@ -37,16 +38,19 @@ se backspace=eol,start,indent
 se magic
 
 "nobell
-	se noerrorbells
-	se novisualbell
-	se belloff=all
+        se noerrorbells
+        se novisualbell
+        se belloff=all
 "}}}
 "keymap {{{
 
 let mapleader=" " 
+nmap <leader><leader> :
 nmap <leader>p :w !python<cr>
 nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
+nmap <leader>wq :wq
+nmap <leader>q :q
 nmap <leader>. :<up><cr>
 nmap <leader>s :so $MYVIMRC<return>
 nmap <leader>; :
@@ -56,8 +60,10 @@ nmap <a-w> <c-w>
 
 vmap <c-c> "+y
 nmap <c-c> :%y+<cr>
-imap <c-v> <esc>"+p
-nmap <c-v> o<esc>"+p
+
+inoremap <c-z> <c-v>
+inoremap <c-v> <esc>"+p
+nnoremap <c-v> o<esc>"+p
 
 nnoremap vv <c-v>
 vnoremap vv <c-v>
@@ -88,36 +94,42 @@ nmap <a-u> <c-u>
 nmap <f5> :nohl<return>
 
 imap <a-u> <esc>gUawea
-imap <a-j> <esc>
-imap <a-k> <esc>
+imap <a-j> <esc>j
+imap <a-k> <esc>k
 
-imap <a-o> <esc>
-nmap <a-o> o
+imap <a-i> ()<esc>
+imap <a-9> (
+imap <a-0> )
+imap <a-[> {
+imap <a-]> }
+imap <a-o> <esc>o
 
 imap <a-c> <esc>
 imap <a-f> <esc>
 imap <a-v> <esc>
 "}}}
 
+
 "hl tab i so wild{{{
 "hl
-	se hls "highlight search
-	se is "incsearch
-	se ic "ignorecase
-	se scs "smartcase
+        se hls "highlight search
+        se is "incsearch
+        se ic "ignorecase
+        se scs "smartcase
 "tab
-	se sta "smarttab
-	"se ts=4 "tabstop
+        se sta "smarttab
+        "se ts=4 "tabstop
+        se et "expandtab with space
 "indent
-	se si "smartindent
-	se ai "autoindent
-	"se cin "cindent
-	"se sw=4 "shiftwidth
-"scrolloff
-	se so=3
+        se si "smartindent
+        se ai "autoindent
+        "se cin "cindent
+        "se sw=4 "shiftwidth
+"scrollofft
+        se so=3
 "complete
-	se wildmenu
-	se completeopt=longest,menu
+        se wildmenu
+        se completeopt=longest,menu
 "}}}
 
 "misc {{{
@@ -131,9 +143,9 @@ autocmd BufReadPost *
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 if has("gui_running")
-	set guioptions-=T
-	let psc_style='cool'
-	se guioptions-=m
+        set guioptions-=T
+        let psc_style='cool'
+        se guioptions-=m
 endif
 "}}}
 
@@ -149,8 +161,11 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+"Plugin 'justinmk/vim-dirvish'
+
 
 Plugin 'suan/vim-instant-markdown'
+Plugin 'rhysd/nyaovim-markdown-preview'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 
@@ -163,7 +178,8 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'sjl/gundo.vim'
 Plugin 'lilydjwg/fcitx.vim'
-Plugin 'git://github.com/will133/vim-dirdiff'
+Plugin 'will133/vim-dirdiff'
+Plugin 'scrooloose/nerdtree'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -172,6 +188,8 @@ Plugin 'git://github.com/will133/vim-dirdiff'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 Plugin 'Tagbar'
+Plugin 'wipeout'
+"Asheq/close-buffers.vim
 
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -209,11 +227,11 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline#extensions#whitespace#trailing_format = 'w_t[%s]'
 let g:airline#extensions#tagbar#enabled = 1
 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 "let g:airline#extensions#tabline#tab_nr_type = 2
 "let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 0
 
 let g:airline_section_c=''
 let g:airline#extensions#tagbar#flags = 's'

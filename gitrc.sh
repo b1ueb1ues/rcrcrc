@@ -1,5 +1,6 @@
 #!/bin/bash
-cp ~/.mybashrc ./mybashrc
-cp ~/.vim/vimrc ./
+cp ~/.config/nvim/init.vim .
+cp ~/.mybashrc .
+cp ~/.vim/vimrc .
 git commit -a -m "script upload"
 git push

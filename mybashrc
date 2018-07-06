@@ -1,14 +1,17 @@
-set -o vi
+#set -o vi
+#xhost +si:localuser:root > /dev/null
 alias sudo='sudo '
 #alias su='sudo -s'
 alias py='python'
-alias vi=gvim
+#alias vi=gvim
+#alias vi=nvim-qt
+#alias vi=~/bin/vi
 alias vib='vi ~/.mybashrc'
 alias sob='. ~/.mybashrc'
 alias viv='vi ~/.vim/vimrc'
 alias vinv='nvim ~/.config/nvim/init.vim'
-alias apt-get='sudo apt-get '
 alias aptgetinstall='sudo apt-get install '
+alias aptinstall='sudo apt install '
 alias synaptic='sudo synaptic'
 alias cp='cp -v'
 alias u='cd ..'

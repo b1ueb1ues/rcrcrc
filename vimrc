@@ -10,13 +10,17 @@ se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir "chdir when edit file
-se dir=~/.vim/swp,~/tmp
+se dir=~/.vim/swp//,/tmp//
+se undofile
+se undodir=~/.vim/swp//,/tmp//
+se nobackup
+"se backupdir=~/.vim/bak//,/tmp//
+
 autocmd BufEnter * setlocal fo-=o
 
 " ./ tells Vim to use the directory of the current file rather than Vim's working directory. 
 " The last semicolon indicate find tags in parents dir
 se tags=./tags;,./TAGS;
-
 
 "source $VIMRUNTIME/vimrc_example.vim
 "se paste "paste with no indent
@@ -26,12 +30,12 @@ se foldmethod=marker
 syntax on
 se nu "number
 se cul "cursor line
+set colorcolumn=80 " wrap80
 hi cursorline cterm=NONE ctermbg=black ctermfg=white
 se ru "ruler
 se sc "showcmd
 se ar "autoread
 se history=1000
-se nobackup
 se showmatch
 se mouse=a
 se backspace=eol,start,indent
@@ -100,7 +104,7 @@ imap <a-k> <esc>k
 imap <a-i> ()<esc>
 imap <a-9> (
 imap <a-0> )
-imap <a-[> {
+imap <a-[> {<cr>}<esc>O
 imap <a-]> }
 imap <a-o> <esc>o
 
@@ -158,7 +162,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'will133/vim-dirdiff'
 Plug 'scrooloose/nerdtree'
@@ -168,6 +173,8 @@ Plug 'artnez/vim-wipeout'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
+Plug 'tenfyzhong/CompleteParameter.vim'
+Plug 'zchee/deoplete-jedi'
 "" Make sure you use single quotes
 "
 "" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -200,6 +207,58 @@ Plug 'Shougo/deoplete.nvim'
 
 " Initialize plugin system
 call plug#end()
+"}}}
+
+
+"{{{ airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
+"let g:airline#extensions#whitespace#trailing_format = 'w_t[%s]'
+let g:airline#extensions#tagbar#enabled = 1
+
+let g:airline#extensions#tabline#enabled = 0
+"let g:airline#extensions#tabline#tab_nr_type = 2
+"let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#show_tabs = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 0
+
+let g:airline_section_c=''
+let g:airline#extensions#tagbar#flags = 's'
+let g:airline_left_sep=' '
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=' '
+let g:airline_right_alt_sep='|'
+"}}}
+"{{{neocomplete
+"let g:neocomplete#enable_at_startup = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"}}}
+"{{{tagbar
+"let g:tagbar_autoclose=1
+let g:tagbar_left=1
+let g:tagbar_width=20
+"}}}
+"{{{ YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_disable_for_files_larger_than_kb = 1000
+"}}}
+"{{{ deoplete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:deoplete#enable_at_startup = 1
+"}}}
+"{{{ compelteparameter
+let g:racer_experimental_completer = 1
+let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
+"}}}
+"{{{ jedi
+inoremap <silent><expr> (( complete_parameter#pre_complete("()")
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"}}}
+"{{{ instant_markdown
+let g:instant_markdown_autostart = 0
 "}}}
 
 ""{{{  vundle
@@ -272,44 +331,3 @@ call plug#end()
 "" Put your non-Plugin stuff after this line
 "
 ""}}}
-
-"{{{ airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#enabled = 0
-"let g:airline#extensions#whitespace#trailing_format = 'w_t[%s]'
-let g:airline#extensions#tagbar#enabled = 1
-
-let g:airline#extensions#tabline#enabled = 0
-"let g:airline#extensions#tabline#tab_nr_type = 2
-"let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#show_tabs = 0
-let g:airline#extensions#tabline#buffer_idx_mode = 0
-
-let g:airline_section_c=''
-let g:airline#extensions#tagbar#flags = 's'
-let g:airline_left_sep=' '
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=' '
-let g:airline_right_alt_sep='|'
-"}}}
-"{{{neocomplete
-"let g:neocomplete#enable_at_startup = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"}}}
-"{{{tagbar
-"let g:tagbar_autoclose=1
-let g:tagbar_left=1
-let g:tagbar_width=20
-"}}}
-"{{{ YCM
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_disable_for_files_larger_than_kb = 1000
-"}}}
-"{{{ deoplete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-let g:deoplete#enable_at_startup = 1
-"}}}
-
-"{{{
-let g:instant_markdown_autostart = 0
-"}}}

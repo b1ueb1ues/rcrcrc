@@ -10,9 +10,9 @@ se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir "chdir when edit file
-se dir=~/.vim/swp//,/tmp//
+se dir=~/.vim/swp// ",/tmp//
 se undofile
-se undodir=~/.vim/swp//,/tmp//
+se undodir=~/.vim/undo// ",/tmp//
 se nobackup
 "se backupdir=~/.vim/bak//,/tmp//
 
@@ -56,7 +56,7 @@ nmap <leader>w :w<cr>
 nmap <leader>wq :wq
 nmap <leader>q :q
 nmap <leader>. :<up><cr>
-nmap <leader>s :so $MYVIMRC<return>
+"nmap <leader>s :so $MYVIMRC<return>
 nmap <leader>; :
 "nmap <leader>q :wq<cr>
 
@@ -170,11 +170,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'artnez/vim-wipeout'
 
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/deoplete.nvim'
-Plug 'tenfyzhong/CompleteParameter.vim'
-Plug 'zchee/deoplete-jedi'
+"Plug 'roxma/nvim-yarp'
+"Plug 'roxma/vim-hug-neovim-rpc'
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'tenfyzhong/CompleteParameter.vim'
 "" Make sure you use single quotes
 "
 "" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -251,7 +251,7 @@ let g:racer_experimental_completer = 1
 let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
 "}}}
 "{{{ jedi
-inoremap <silent><expr> (( complete_parameter#pre_complete("()")
+"inoremap <silent><expr> (( complete_parameter#pre_complete("()")
 "smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 "imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 "smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)

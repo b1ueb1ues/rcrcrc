@@ -79,13 +79,15 @@ nnoremap <c-c> <esc>
 imap <c-c> <esc>:%y+<cr>
 nnoremap <c-v> o<esc>"+p
 vmap <c-c> "+y
-"inoremap <c-v> <esc>"+p
-se pastetoggle=<c-v>
-inoremap <c-v> <c-v><c-r>+<c-v>
+"inoremap <c-v> <esc>"+pgi
+inoremap <c-v> <c-o>:set paste<cr><c-r>+<c-o>:set nopaste<cr>
+
+
 inoremap <c-z> <c-v>
 
 nnoremap vv <c-v>
 vnoremap vv <c-v>
+
 
 nmap k gk
 nmap j gj
@@ -175,14 +177,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'artnez/vim-wipeout'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
 "Plug 'zchee/deoplete-jedi'
 "Plug 'tenfyzhong/CompleteParameter.vim'
 

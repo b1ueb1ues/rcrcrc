@@ -50,24 +50,30 @@ se magic
 
 let mapleader=" " 
 nmap <leader><leader> :
+nmap <leader> :
+nmap <leader>; :
+nmap <leader>. :<up><cr>
 nmap <leader>p :w !python<cr>
 nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
 nmap <leader>wq :wq
 nmap <leader>q :q!
-nmap <leader>. :<up><cr>
 "nmap <leader>s :so $MYVIMRC<return>
-nmap <leader>; :
-"nmap <leader>q :wq<cr>
+
+nnoremap Q q  "use gQ to exmode
+nnoremap q <esc>
+nmap ZQ <esc>
+nmap ZZ <esc>
+"nmap g: :<c-f> "to q: mode
+"nmap :: :<c-f>
 
 nmap <a-w> <c-w>
 
-vmap <c-c> "+y
 nmap <c-c> :%y+<cr>
-
-inoremap <c-z> <c-v>
-inoremap <c-v> <esc>"+p
 nnoremap <c-v> o<esc>"+p
+vmap <c-c> "+y
+inoremap <c-v> <c-r>+
+inoremap <c-z> <c-v>
 
 nnoremap vv <c-v>
 vnoremap vv <c-v>
@@ -75,15 +81,6 @@ vnoremap vv <c-v>
 nmap k gk
 nmap j gj
 nmap U gUaw
-nmap qq <esc>
-nmap q: <esc>:
-nmap q/ <esc>/
-nmap Q <esc>
-nmap ZQ <esc>
-nmap ZZ <esc>
-"nmap g: :<c-f>
-"nmap :: :<c-f>
-"nnoremap <space><cr> :<up><cr>
 
 nmap <a-j> 3j
 nmap <a-k> 3k
@@ -93,14 +90,12 @@ vmap <a-k> 3k
 nmap <a-d> <c-d>
 nmap <a-u> <c-u>
 
-
-
-nmap <f5> :nohl<return>
+nmap <esc> :nohl<cr>
+nmap <f5> :nohl<cr>
 
 imap <a-u> <esc>gUawea
 imap <a-j> <esc>j
 imap <a-k> <esc>k
-
 imap <a-i> ()<esc>
 imap <a-9> (
 imap <a-0> )
@@ -111,6 +106,7 @@ imap <a-o> <esc>o
 imap <a-c> <esc>
 imap <a-f> <esc>
 imap <a-v> <esc>
+
 "}}}
 
 

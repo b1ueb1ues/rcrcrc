@@ -23,8 +23,10 @@ autocmd BufEnter * setlocal fo-=o
 se tags=./tags;,./TAGS;
 
 "source $VIMRUNTIME/vimrc_example.vim
+
 "se paste "paste with no indent
 se foldmethod=marker
+
 
 "basic{{{
 syntax on
@@ -46,6 +48,7 @@ se magic
         se novisualbell
         se belloff=all
 "}}}
+
 "keymap {{{
 
 let mapleader=" " 
@@ -58,7 +61,8 @@ nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
 nmap <leader>wq :wq
 nmap <leader>q :q!
-"nmap <leader>s :so $MYVIMRC<return>
+"nmap <leader>s :so $MYVIMRC<cr>
+"nmap <leader>s :w !sh<cr>
 
 nnoremap Q q  "use gQ to exmode
 nnoremap q <esc>
@@ -69,10 +73,15 @@ nmap ZZ <esc>
 
 nmap <a-w> <c-w>
 
-nmap <c-c> :%y+<cr>
+" ctrl+c ctrl+v !
+"nmap <c-c> :%y+<cr>
+nnoremap <c-c> <esc>
+imap <c-c> <esc>:%y+<cr>
 nnoremap <c-v> o<esc>"+p
 vmap <c-c> "+y
-inoremap <c-v> <c-r>+
+"inoremap <c-v> <esc>"+p
+se pastetoggle=<c-v>
+inoremap <c-v> <c-v><c-r>+<c-v>
 inoremap <c-z> <c-v>
 
 nnoremap vv <c-v>
@@ -93,7 +102,7 @@ nmap <a-u> <c-u>
 nmap <esc> :nohl<cr>
 nmap <f5> :nohl<cr>
 
-imap <a-u> <esc>gUawea
+imap <a-u> <esc>gUawgi
 imap <a-j> <esc>j
 imap <a-k> <esc>k
 imap <a-i> ()<esc>
@@ -108,7 +117,6 @@ imap <a-f> <esc>
 imap <a-v> <esc>
 
 "}}}
-
 
 "hl tab i so wild{{{
 "hl
@@ -143,9 +151,10 @@ autocmd BufReadPost *
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 if has("gui_running")
-        set guioptions-=T
+        se guioptions-=T
         let psc_style='cool'
         se guioptions-=m
+        se guioptions+=r
 endif
 "}}}
 
@@ -162,49 +171,23 @@ Plug 'sjl/gundo.vim'
 Plug 'mbbill/undotree'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'will133/vim-dirdiff'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'artnez/vim-wipeout'
 
-"Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
-"Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 "Plug 'zchee/deoplete-jedi'
 "Plug 'tenfyzhong/CompleteParameter.vim'
-"" Make sure you use single quotes
-"
-"" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-"Plug 'junegunn/vim-easy-align'
-"
-"" Any valid git URL is allowed
-"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-"
-"" Multiple Plug commands can be written in a single line using | separators
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-"
-"" On-demand loading
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"
-"" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-"
-"" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-"Plug 'fatih/vim-go', { 'tag': '*' }
-"
-"" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-"
-"" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"
-"" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
 
-" Initialize plugin system
 call plug#end()
 "}}}
-
 
 "{{{ airline
 let g:airline_powerline_fonts = 1
@@ -224,10 +207,6 @@ let g:airline_left_sep=' '
 let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
 let g:airline_right_alt_sep='|'
-"}}}
-"{{{neocomplete
-"let g:neocomplete#enable_at_startup = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 "}}}
 "{{{tagbar
 "let g:tagbar_autoclose=1
@@ -257,73 +236,3 @@ let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
 let g:instant_markdown_autostart = 0
 "}}}
 
-""{{{  vundle
-"filetype off                  " required
-"
-"" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"" alternatively, pass a path where Vundle should install plugins
-""call vundle#begin('~/some/path/here')
-"
-"" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-""Plugin 'justinmk/vim-dirvish'
-"
-"
-"Plugin 'suan/vim-instant-markdown'
-"Plugin 'rhysd/nyaovim-markdown-preview'
-"Plugin 'godlygeek/tabular'
-""Plugin 'plasticboy/vim-markdown'
-"
-"Plugin 'bling/vim-airline'
-"Plugin 'fidian/hexmode'
-"Plugin 'vim-airline/vim-airline-themes'
-""Plugin 'Shougo/neocomplete.vim'
-""Plugin 'klen/python-mode'
-""Plugin 'scrooloose/syntastic'
-""Plugin 'Valloric/YouCompleteMe'
-"Plugin 'sjl/gundo.vim'
-"Plugin 'lilydjwg/fcitx.vim'
-"Plugin 'will133/vim-dirdiff'
-"Plugin 'scrooloose/nerdtree'
-"" The following are examples of different formats supported.
-"" Keep Plugin commands between vundle#begin/end.
-"" plugin on GitHub repo
-""Plugin 'tpope/vim-fugitive'
-"
-"" plugin from http://vim-scripts.org/vim/scripts.html
-""Plugin 'L9'
-"Plugin 'Tagbar'
-"Plugin 'wipeout'
-""Asheq/close-buffers.vim
-"
-"" Git plugin not hosted on GitHub
-""Plugin 'git://git.wincent.com/command-t.git'
-"
-"" git repos on your local machine (i.e. when working on your own plugin)
-""Plugin 'file:///home/gmarik/path/to/plugin'
-"
-"" The sparkup vim script is in a subdirectory of this repo called vim.
-"" Pass the path to set the runtimepath properly.
-""Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"
-"" Avoid a name conflict with L9
-""Plugin 'user/L9', {'name': 'newL9'}
-"
-"" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-"filetype plugin indent on    " required
-"" To ignore plugin indent changes, instead use:
-""filetype plugin on
-""
-"" Brief help
-"" :PluginList       - lists configured plugins
-"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-""
-"" see :h vundle for more details or wiki for FAQ
-"" Put your non-Plugin stuff after this line
-"
-""}}}

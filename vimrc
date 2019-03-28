@@ -54,7 +54,7 @@ nmap <leader>p :w !python<cr>
 nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
 nmap <leader>wq :wq
-nmap <leader>q :q
+nmap <leader>q :q!
 nmap <leader>. :<up><cr>
 "nmap <leader>s :so $MYVIMRC<return>
 nmap <leader>; :
@@ -128,7 +128,7 @@ imap <a-v> <esc>
         se si "smartindent
         se ai "autoindent
         "se cin "cindent
-        "se sw=4 "shiftwidth
+        se sw=4 "shiftwidth
 "scrollofft
         se so=3
 "complete
@@ -160,9 +160,9 @@ Plug 'suan/vim-instant-markdown'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'godlygeek/tabular'
 
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'sjl/gundo.vim'
+"Plug 'bling/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'sjl/gundo.vim'
 Plug 'mbbill/undotree'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'will133/vim-dirdiff'

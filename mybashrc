@@ -2,7 +2,7 @@
 #xhost +si:localuser:root > /dev/null
 alias sudo='sudo '
 #alias su='sudo -s'
-alias py='python'
+alias py='pypy'
 #alias vi=gvim
 #alias vi=nvim-qt
 #alias vi=~/bin/vi

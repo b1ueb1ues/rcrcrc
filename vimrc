@@ -51,7 +51,7 @@ se magic
 
 "keymap {{{
 
-let mapleader=" " 
+let mapleader=" "
 nmap <leader><leader> :
 nmap <leader> :
 nmap <leader>; :
@@ -64,7 +64,8 @@ nmap <leader>q :q!
 "nmap <leader>s :so $MYVIMRC<cr>
 "nmap <leader>s :w !sh<cr>
 
-nnoremap Q q  "use gQ to exmode
+"use gQ to exmode
+nnoremap Q q
 nnoremap q <esc>
 nmap ZQ <esc>
 nmap ZZ <esc>
@@ -74,8 +75,8 @@ nmap ZZ <esc>
 nmap <a-w> <c-w>
 
 " ctrl+c ctrl+v !
-"nmap <c-c> :%y+<cr>
 nnoremap <c-c> <esc>
+"nmap <c-c> :%y+<cr>
 imap <c-c> <esc>:%y+<cr>
 nnoremap <c-v> o<esc>"+p
 vmap <c-c> "+y
@@ -103,6 +104,7 @@ nmap <a-u> <c-u>
 
 nmap <esc> :nohl<cr>
 nmap <f5> :nohl<cr>
+cmap <c-a> <c-b>
 
 imap <a-u> <esc>gUawgi
 imap <a-j> <esc>j

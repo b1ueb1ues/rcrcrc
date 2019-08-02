@@ -1,4 +1,7 @@
 se nocp "nocompatible
+nmap <f2> cwinit<esc>
+nmap <f3> /pre(<cr>
+nmap <f4> :wq<cr>
 
 colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
@@ -52,6 +55,7 @@ se magic
 "keymap {{{
 
 let mapleader=" "
+"nnoremap : q:i
 nmap <leader><leader> :
 nmap <leader> :
 nmap <leader>; :
@@ -102,7 +106,7 @@ vmap <a-k> 3k
 nmap <a-d> <c-d>
 nmap <a-u> <c-u>
 
-nmap <esc> :nohl<cr>
+nnoremap <esc><esc> :nohl<cr>
 nmap <f5> :nohl<cr>
 cmap <c-a> <c-b>
 

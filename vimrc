@@ -1,21 +1,18 @@
 se nocp "nocompatible
-nmap <f2> cwinit<esc>
-nmap <f3> /pre(<cr>
-nmap <f4> :wq<cr>
 
 colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
 "se go=
-"se guifont=Monospace\ 13
-"se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+
+"se guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 se guifont=DejaVu\ Sans\ Mono\ Book\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir "chdir when edit file
-se dir=~/.vim/swp// ",/tmp//
+se dir=~/.vim/swp//,./ ",/tmp//
 se undofile
-se undodir=~/.vim/undo// ",/tmp//
+se undodir=~/.vim/undo//./ ",/tmp//
 se nobackup
 "se backupdir=~/.vim/bak//,/tmp//
 
@@ -67,6 +64,7 @@ nmap <leader>wq :wq
 nmap <leader>q :q!
 "nmap <leader>s :so $MYVIMRC<cr>
 "nmap <leader>s :w !sh<cr>
+nmap <leader>[ :%s/.*\[[^]]\+\].*\n//g
 
 "use gQ to exmode
 nnoremap Q q

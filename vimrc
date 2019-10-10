@@ -1,18 +1,21 @@
 se nocp "nocompatible
+nmap <f2> cwinit<esc>
+nmap <f3> /pre(<cr>
+nmap <f4> :wq<cr>
 
 colorscheme Tomorrow-Night
 "se viminfo=:1000,@1000
 "se go=
-
-"se guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+"se guifont=Monospace\ 13
+"se guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
 se guifont=DejaVu\ Sans\ Mono\ Book\ 13
 se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir "chdir when edit file
-se dir=~/.vim/swp//,./ ",/tmp//
+se dir=~/.vim/swp// ",/tmp//
 se undofile
-se undodir=~/.vim/undo//./ ",/tmp//
+se undodir=~/.vim/undo// ",/tmp//
 se nobackup
 "se backupdir=~/.vim/bak//,/tmp//
 
@@ -57,14 +60,14 @@ nmap <leader><leader> :
 nmap <leader> :
 nmap <leader>; :
 nmap <leader>. :<up><cr>
-nmap <leader>p :w !python<cr>
+nmap <leader>p :w !python3<cr>
 nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
 nmap <leader>wq :wq
 nmap <leader>q :q!
 "nmap <leader>s :so $MYVIMRC<cr>
 "nmap <leader>s :w !sh<cr>
-nmap <leader>[ :%s/.*\[[^]]\+\].*\n//g
+nmap <leader>[ :
 
 "use gQ to exmode
 nnoremap Q q
@@ -181,16 +184,16 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'artnez/vim-wipeout'
 
-"if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-"let g:deoplete#enable_at_startup = 1
-"Plug 'zchee/deoplete-jedi'
-"Plug 'tenfyzhong/CompleteParameter.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+Plug 'zchee/deoplete-jedi'
+Plug 'tenfyzhong/CompleteParameter.vim'
 
 call plug#end()
 "}}}

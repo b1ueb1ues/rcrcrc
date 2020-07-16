@@ -61,6 +61,7 @@ nmap <leader> :
 nmap <leader>; :
 nmap <leader>. :<up><cr>
 nmap <leader>p :w !python3<cr>
+nmap <leader>n :w !node<cr>
 nmap <leader>l :w !lua<cr>
 nmap <leader>w :w<cr>
 nmap <leader>wq :wq
@@ -68,6 +69,7 @@ nmap <leader>q :q!
 "nmap <leader>s :so $MYVIMRC<cr>
 "nmap <leader>s :w !sh<cr>
 nmap <leader>[ :
+nmap <leader>] :%s/.*[[A-Za-z]\+].*\n//g
 
 "use gQ to exmode
 nnoremap Q q
@@ -169,7 +171,8 @@ endif
 
 "{{{ vim-plug
 call plug#begin('~/.vim/plugged')
-
+Plug 'arrufat/vala.vim'
+Plug 'vim-scripts/browser.vim'
 Plug 'suan/vim-instant-markdown'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'godlygeek/tabular'

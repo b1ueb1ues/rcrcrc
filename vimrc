@@ -13,7 +13,7 @@ se fileencodings=utf-8,ucs-bom,gbk,gb2312
 se encoding=utf-8
 se laststatus=2
 se autochdir "chdir when edit file
-se dir=~/.vim/swp// ",/tmp//
+"se dir=~/.vim/swp// ",/tmp//
 se undofile
 se undodir=~/.vim/undo// ",/tmp//
 se nobackup
@@ -195,8 +195,13 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-Plug 'zchee/deoplete-jedi'
-Plug 'tenfyzhong/CompleteParameter.vim'
+
+if has('win32')
+    Plug 'davidhalter/jedi-vim'
+else
+    Plug 'zchee/deoplete-jedi'
+    Plug 'tenfyzhong/CompleteParameter.vim'
+endif
 
 call plug#end()
 "}}}

@@ -4,6 +4,8 @@
 
 sudo passwd root
 
+git config --global --add http.proxy socks://127.0.0.1:10809
+
 
 
 127.0.0.1

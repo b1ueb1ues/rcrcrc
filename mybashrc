@@ -45,3 +45,12 @@ PATH=$PATH:/opt/android-studio/bin
 #PATH=/opt/lede/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_uClibc/bin:$PATH
 
 export OPENGROK_SRC_ROOT=/home/bblues/d/src-root
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export QT_LOGGING_RULES='*=false'
+#export ANDROID_NDK_ROOT=/opt/Android/android-ndk-r24-beta1
+
+export HISTTIMEFORMAT='%H:%M:%S '
+export HISTFILESIZE=10000
+shopt -s histappend  # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"

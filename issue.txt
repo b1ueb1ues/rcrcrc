@@ -6,6 +6,8 @@ sudo passwd root
 
 git config --global --add http.proxy socks://127.0.0.1:10809
 
+file: polo-gtk
+term: tilix
 
 
 127.0.0.1
@@ -64,4 +66,5 @@ ip rule add from 192.168.42.0/24 lookup 61
 ip route add default dev tun0 scope link table 61
 ip route add 192.168.42.0/24 dev rndis0 scope link table 61
 ip route add broadcast 255.255.255.255 dev rndis0 scope link table 61
+
 

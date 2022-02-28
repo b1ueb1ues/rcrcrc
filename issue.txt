@@ -6,8 +6,9 @@ sudo passwd root
 
 git config --global --add http.proxy socks://127.0.0.1:10809
 
-file: polo-gtk
+file: thunar, polo-gtk(deprecated)
 term: tilix
+gnome application tweak: menulibre
 
 127.0.0.1
 192.168.*.*
@@ -44,6 +45,7 @@ localhost
 *.prts.wiki
 *.qq.com
 
+// ap vpn
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
@@ -54,7 +56,7 @@ ip route add default dev tun0 scope link table 61
 ip route add 192.168.43.0/24 dev wlan1 scope link table 61
 ip route add broadcast 255.255.255.255 dev wlan1 scope link table 61
 
-
+// tether vpn
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
@@ -66,4 +68,5 @@ ip route add 192.168.42.0/24 dev rndis0 scope link table 61
 ip route add broadcast 255.255.255.255 dev rndis0 scope link table 61
 
 
+// windows sleep
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V AwayModeEnabled /T REG_dWORD /D 0 /F 

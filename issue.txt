@@ -11,9 +11,8 @@ term: tilix
 gnome application tweak: menulibre
 
 # disable-firefox-blocking-of-http-downloads
-Navigate to about:config within Firefox
-Search for dom.block_download_insecure.
-Set dom.block_download_insecure to False
+about:config 
+dom.block_download_insecure
 
 
 127.0.0.1
@@ -52,26 +51,30 @@ localhost
 *.qq.com
 
 // ap vpn
+IP=192.168.43.0
+IF=wlan1
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
 iptables -t filter -I FORWARD -j ACCEPT
 iptables -t nat -I POSTROUTING -j MASQUERADE
-ip rule add from 192.168.43.0/24 lookup 61
+ip rule add from $IP/24 lookup 61
 ip route add default dev tun0 scope link table 61
-ip route add 192.168.43.0/24 dev wlan1 scope link table 61
-ip route add broadcast 255.255.255.255 dev wlan1 scope link table 61
+ip route add $IP/24 dev $IF scope link table 61
+ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 // tether vpn
+IP=192.168.42.0
+IF=wlan1
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
 iptables -t filter -I FORWARD -j ACCEPT
 iptables -t nat -I POSTROUTING -j MASQUERADE
-ip rule add from 192.168.42.0/24 lookup 61
+ip rule add from $IP/24 lookup 61
 ip route add default dev tun0 scope link table 61
-ip route add 192.168.42.0/24 dev rndis0 scope link table 61
-ip route add broadcast 255.255.255.255 dev rndis0 scope link table 61
+ip route add $IP/24 dev $IF scope link table 61
+ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 
 // windows sleep

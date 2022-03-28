@@ -10,6 +10,12 @@ file: thunar, polo-gtk(deprecated)
 term: tilix
 gnome application tweak: menulibre
 
+# disable-firefox-blocking-of-http-downloads
+Navigate to about:config within Firefox
+Search for dom.block_download_insecure.
+Set dom.block_download_insecure to False
+
+
 127.0.0.1
 192.168.*.*
 ::1

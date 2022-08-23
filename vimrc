@@ -81,7 +81,8 @@ nmap ZZ <esc>
 
 nmap <a-w> <c-w>
 
-" ctrl+c ctrl+v !
+" ctrl+c ctrl+v  ctrl+s!
+nnoremap <c-s> :w !sudo tee %<cr>
 nnoremap <c-c> <esc>
 "nmap <c-c> :%y+<cr>
 imap <c-c> <esc>:%y+<cr>
@@ -137,13 +138,12 @@ imap <a-v> <esc>
         se scs "smartcase
 "tab
         se sta "smarttab
-        "se ts=4 "tabstop
+        se ts=4 sw=4 "tabstop
         se et "expandtab with space
 "indent
         se si "smartindent
         se ai "autoindent
         "se cin "cindent
-        se sw=4 "shiftwidth
 "scrollofft
         se so=3
 "complete
@@ -166,22 +166,23 @@ if has("gui_running")
         let psc_style='cool'
         se guioptions-=m
         se guioptions+=r
+	se lines=45 columns=150
 endif
 "}}}
 
 "{{{ vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'arrufat/vala.vim'
-Plug 'vim-scripts/browser.vim'
-Plug 'suan/vim-instant-markdown'
-Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'godlygeek/tabular'
 
 "Plug 'bling/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/gundo.vim'
 Plug 'mbbill/undotree'
-Plug 'lilydjwg/fcitx.vim'
+"Plug 'lilydjwg/fcitx.vim'
+"Plug 'vim-scripts/fcitx.vim'
+Plug 'kevinhwang91/vim-ibus-sw',  { 'branch': 'main' }
+
 Plug 'will133/vim-dirdiff'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
@@ -194,6 +195,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 let g:deoplete#enable_at_startup = 1
 
 if has('win32')

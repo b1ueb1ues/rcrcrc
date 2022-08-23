@@ -1,20 +1,21 @@
 #set -o vi
 #xhost +si:localuser:root > /dev/null
+alias n='n '
 alias sudo='sudo '
-#alias su='sudo -s'
-alias py='pypy3'
-alias python='python3'
-#alias vi=gvim
+alias py='python3'
+#alias python='python3'
+alias vi=gvim
 #alias vi=nvim-qt
 #alias vi=~/bin/vi
 alias vib='vi ~/.mybashrc'
 alias sob='. ~/.mybashrc'
 alias viv='vi ~/.vim/vimrc'
+alias viv2='vi /usr/local/etc/v2ray/config.json'
 alias vinv='nvim ~/.config/nvim/init.vim'
 alias aptgetinstall='sudo apt-get install '
 alias aptinstall='sudo apt install '
 alias synaptic='sudo synaptic'
-alias cp='cp -v'
+#alias cp='cp -v'
 alias u='cd ..'
 alias q='exit'
 alias :q='exit'
@@ -22,13 +23,13 @@ alias catipforward='cat /proc/sys/net/ipv4/ip_forward'
 alias setipforward='echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward'
 alias usetipforward='echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward'
 
-alias c='cat /proc/sys/net/ipv4/ip_forward'
-alias us='sudo echo 0 > /proc/sys/net/ipv4/ip_forward'
-alias s='sudo echo 1 > /proc/sys/net/ipv4/ip_forward'
+#alias c='cat /proc/sys/net/ipv4/ip_forward'
+#alias us='sudo echo 0 > /proc/sys/net/ipv4/ip_forward'
+#alias s='sudo echo 1 > /proc/sys/net/ipv4/ip_forward'
 
 
 # some more ls aliases
-alias ps='ps aux '
+alias ps='ps -ef '
 alias ls='ls --color=auto -CFh'
 alias ll='ls -ClFh'
 alias lla='ls -CalFh'
@@ -39,13 +40,16 @@ alias l='ls -CFh'
 
 PATH=~/bin:/sbin:/usr/sbin:$PATH
 PATH=/opt/opengrok/bin:$PATH
-PATH=$PATH:/opt/Android/sdk/tools
-PATH=$PATH:/opt/Android/sdk/platform-tools
-PATH=$PATH:/opt/android-studio/bin
+PATH=/opt/Android/Sdk/tools:$PATH
+PATH=/opt/Android/Sdk/platform-tools:$PATH
+PATH=/opt/android-studio/bin:$PATH
+PATH=/opt/jdk/bin:$PATH
+PATH=/opt/node/bin:$PATH
+PATH=/home/bblues/.local/bin:$PATH
+PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 #PATH=/opt/lede/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_uClibc/bin:$PATH
 
 export OPENGROK_SRC_ROOT=/home/bblues/d/src-root
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export QT_LOGGING_RULES='*=false'
 #export ANDROID_NDK_ROOT=/opt/Android/android-ndk-r24-beta1
@@ -54,3 +58,4 @@ export HISTTIMEFORMAT='%H:%M:%S '
 export HISTFILESIZE=10000
 shopt -s histappend  # append to history, don't overwrite it
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+

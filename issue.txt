@@ -79,3 +79,8 @@ ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 // windows sleep
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V AwayModeEnabled /T REG_dWORD /D 0 /F 
+
+// linux sleep
+vi /etc/default/grub
+GRUB_CMDLINE_LINUX="quiet splash mem_sleep_default=deep"
+update-grub

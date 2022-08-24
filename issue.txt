@@ -51,29 +51,45 @@ localhost
 *.qq.com
 
 // ap vpn
-IP=192.168.43.0
 IF=wlan1
+IP=`ip route|grep $IF|awk '{print $1}'`
+#IP=192.168.161.0/24
+
+if [ -z $IP ]
+then
+echo no ap
+return 0
+fi
+
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
 iptables -t filter -I FORWARD -j ACCEPT
 iptables -t nat -I POSTROUTING -j MASQUERADE
-ip rule add from $IP/24 lookup 61
+ip rule add from $IP lookup 61
 ip route add default dev tun0 scope link table 61
-ip route add $IP/24 dev $IF scope link table 61
+ip route add $IP dev $IF scope link table 61
 ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 // tether vpn
-IP=192.168.42.0
-IF=wlan1
+IF=rndis0
+IP=`ip route|grep $IF|awk '{print $1}'`
+#IP=192.168.71.0/24
+
+if [ -z $IP ]
+then
+echo no ap
+return 0
+fi
+
 iptables --flush
 iptables -t filter -F FORWARD
 iptables -t nat -F POSTROUTING
 iptables -t filter -I FORWARD -j ACCEPT
 iptables -t nat -I POSTROUTING -j MASQUERADE
-ip rule add from $IP/24 lookup 61
+ip rule add from $IP lookup 61
 ip route add default dev tun0 scope link table 61
-ip route add $IP/24 dev $IF scope link table 61
+ip route add $IP dev $IF scope link table 61
 ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 
@@ -84,3 +100,8 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V AwayMod
 vi /etc/default/grub
 GRUB_CMDLINE_LINUX="quiet splash mem_sleep_default=deep"
 update-grub
+
+
+// linux key repeat reset problem
+vi /etc/X11/xinit/xserverrc
+exec /usr/bin/X -nolisten tcp -ardelay 300 -arinterval 25 "$@"

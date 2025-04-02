@@ -43,6 +43,7 @@ git config --global --add http.proxy socks://127.0.0.1:10809
 ### frida problem
 ```
 pm uninstall com.google.android.art
+reboot
 ```
 
 ### disable-firefox-blocking-of-http-downloads

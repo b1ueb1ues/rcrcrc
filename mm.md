@@ -198,9 +198,15 @@ click -> Edit in settings.json
             "supported": true
         },
 },
-
-
 ```
+
+
+### nvim windows shada problem
+```
+vim.opt.shadafile = "NONE" -- disable shada
+```
+
+
 
 ### vscode-neovim send alt key  
 ```json

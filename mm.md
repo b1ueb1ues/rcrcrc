@@ -9,16 +9,24 @@ netsh interface portproxy add v4tov4 listenport=10809 listenaddress=0.0.0.0 conn
 networkingMode=mirrored
 ```
 
+linux utils
 ```
 apt install neovim git curl net-tools
 apt install synaptic apt-xapian-index tilix thunar 
 ```
-
 ```
 file: thunar, polo-gtk(deprecated)
 term: tilix
 gnome application tweak: menulibre
 ```
+
+windows utils
+```
+RudeWindowFixer   --nvidia overlay problem
+DJV --framebyframe viewer
+NirSoft WifiInfoView 
+```
+
 
 ```
 dpkg --add-architecture i386

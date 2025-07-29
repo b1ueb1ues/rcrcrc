@@ -147,7 +147,8 @@ ip route add broadcast 255.255.255.255 dev $IF scope link table 61
 
 ```
 // windows sleep
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V AwayModeEnabled /T REG_dWORD /D 0 /F 
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /V AwayModeEnabled /T REG_dWORD /D 0 /F
+rundll32.exe powrprof.dll SetSuspendState Sleep
 
 // linux sleep
 vi /etc/default/grub

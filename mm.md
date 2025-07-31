@@ -27,6 +27,11 @@ DJV --framebyframe viewer
 NirSoft WifiInfoView 
 ```
 
+windows remove xbox gamebar
+```
+Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage
+```
+
 
 ```
 dpkg --add-architecture i386

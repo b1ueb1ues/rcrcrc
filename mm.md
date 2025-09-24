@@ -24,7 +24,10 @@ windows utils
 ```
 RudeWindowFixer   --nvidia overlay problem
 DJV --framebyframe viewer
-NirSoft WifiInfoView 
+NirSoft WifiInfoView
+kdenlive
+zed
+tabby
 ```
 
 windows remove xbox gamebar
@@ -259,3 +262,4 @@ vim.opt.shadafile = "NONE" -- disable shada
         { "key": "f5", "command": "vscode-neovim.send", "args": "<f5>", "when": "editorTextFocus && neovim.init" },
 ]
 ```
+

@@ -224,6 +224,59 @@ vim.opt.shadafile = "NONE" -- disable shada
 ```
 
 
+### zed key
+```json
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space ;": "command_palette::Toggle",
+      "space space": "command_palette::Toggle",
+      "v v": "vim::ToggleVisualBlock",
+      "space w": ["workspace::SendKeystrokes", ": w enter"],
+      "space q": ["workspace::SendKeystrokes", ": q !"],
+      "space w q": ["workspace::SendKeystrokes", ": w q"],
+      "alt-o": ["workspace::SendKeystrokes", "ctrl-[ A { enter"],
+      "alt-j": ["workspace::SendKeystrokes", "3 j"],
+      "alt-k": ["workspace::SendKeystrokes", "3 k"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-a": "editor::SelectAll",
+      "alt-9": ["workspace::SendKeystrokes", "("],
+      "alt-0": ["workspace::SendKeystrokes", ")"],
+      "alt-[": ["workspace::SendKeystrokes", "{"],
+      "alt-]": ["workspace::SendKeystrokes", "}"],
+      "alt-i": ["workspace::SendKeystrokes", "( ) left"],
+      "alt-o": ["workspace::SendKeystrokes", "ctrl-[ A { enter"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "ctrl-a": "editor::SelectAll",
+      "alt-j": ["workspace::SendKeystrokes", "3 j"],
+      "alt-k": ["workspace::SendKeystrokes", "3 k"]
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-c": "editor::Copy", // vim default: return to normal mode
+      "ctrl-v": "editor::Paste" // vim default: visual block mode
+    }
+  }
+]
+```
+
 
 ### vscode-neovim send alt key  
 ```json
@@ -262,4 +315,5 @@ vim.opt.shadafile = "NONE" -- disable shada
         { "key": "f5", "command": "vscode-neovim.send", "args": "<f5>", "when": "editorTextFocus && neovim.init" },
 ]
 ```
+
 

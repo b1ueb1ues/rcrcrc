@@ -222,17 +222,38 @@ click -> Edit in settings.json
 ```
 vim.opt.shadafile = "NONE" -- disable shada
 ```
-
-
-### zed key
-```json
-[
-  {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
+### zed setting
+```json5
+{
+  "vim_mode": true,
+  "buffer_font_family": "DejaVu Sans Mono",
+  "ui_font_family": ".ZedMono",
+  "show_edit_predictions": false,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "!basedpyright"]
     }
   },
+  "disable_ai": true
+}
+```
+
+### zed key
+```json5
+[
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
@@ -272,6 +293,19 @@ vim.opt.shadafile = "NONE" -- disable shada
     "bindings": {
       "ctrl-c": "editor::Copy", // vim default: return to normal mode
       "ctrl-v": "editor::Paste" // vim default: visual block mode
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-s": "project_symbols::Toggle",
+      "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-t": "pane::GoBack"
     }
   }
 ]
@@ -315,5 +349,6 @@ vim.opt.shadafile = "NONE" -- disable shada
         { "key": "f5", "command": "vscode-neovim.send", "args": "<f5>", "when": "editorTextFocus && neovim.init" },
 ]
 ```
+
 
 

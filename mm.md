@@ -52,7 +52,7 @@ sudo apt-get install --reinstall gnome-control-center
 
 %sudo  ALL=(ALL) NOPASSWD: ALL
 
-git config --global --add http.proxy socks://127.0.0.1:10809
+git config --global --add http.proxy socks5://127.0.0.1:10808
 
 ```
 
@@ -349,6 +349,7 @@ vim.opt.shadafile = "NONE" -- disable shada
         { "key": "f5", "command": "vscode-neovim.send", "args": "<f5>", "when": "editorTextFocus && neovim.init" },
 ]
 ```
+
 
 
 

@@ -9,6 +9,14 @@ netsh interface portproxy add v4tov4 listenport=10809 listenaddress=0.0.0.0 conn
 networkingMode=mirrored
 ```
 
+ubuntu firewall
+```
+ufw enable
+ufw disable
+ufw allow 22
+ufw deny 22
+```
+
 linux utils
 ```
 apt install neovim git curl net-tools

@@ -255,9 +255,22 @@ vim.opt.shadafile = "NONE" -- disable shada
     "dark": "Catppuccin Mocha"
   },
   "languages": {
+    "JSONC": {
+      "format_on_save": "off",
+      "indent_guides": {
+        "enabled": true
+      },
+      "line_ending": "enforce_lf"
+    },
+    "JSON": {
+      "format_on_save": "off"
+    },
+    "CSharp": {
+      "format_on_save": "off"
+    },
     "Python": {
-      "language_servers": ["ty", "!basedpyright"]
-    }
+      "language_servers": ["ty", "!basedpyright"],
+    },
   },
   "disable_ai": true
 }

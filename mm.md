@@ -270,15 +270,18 @@ vim.opt.shadafile = "NONE" -- disable shada
     "context": "Editor && vim_mode == normal",
     "bindings": {
       "space ;": "command_palette::Toggle",
-      "space space": "command_palette::Toggle",
-      "v v": "vim::ToggleVisualBlock",
+      "space": "command_palette::Toggle",
       "space w": ["workspace::SendKeystrokes", ": w enter"],
       "space q": ["workspace::SendKeystrokes", ": q !"],
       "space w q": ["workspace::SendKeystrokes", ": w q"],
-      "alt-o": ["workspace::SendKeystrokes", "ctrl-[ A { enter"],
       "alt-j": ["workspace::SendKeystrokes", "3 j"],
-      "alt-k": ["workspace::SendKeystrokes", "3 k"]
-    }
+      "alt-k": ["workspace::SendKeystrokes", "3 k"],
+      "alt-i": ["workspace::SendKeystrokes", "i ( ) left"],
+      "alt-p": ["workspace::SendKeystrokes", "i [ ] left"],
+      "alt-o": ["workspace::SendKeystrokes", "A space { enter"],
+      "alt-l": ["workspace::SendKeystrokes", "A : enter"],
+      "alt-;": ["workspace::SendKeystrokes", "A ; ctrl-["],
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
@@ -289,37 +292,63 @@ vim.opt.shadafile = "NONE" -- disable shada
       "alt-[": ["workspace::SendKeystrokes", "{"],
       "alt-]": ["workspace::SendKeystrokes", "}"],
       "alt-i": ["workspace::SendKeystrokes", "( ) left"],
-      "alt-o": ["workspace::SendKeystrokes", "ctrl-[ A { enter"]
-    }
+      "alt-p": ["workspace::SendKeystrokes", "[ ] left"],
+      "alt-o": ["workspace::SendKeystrokes", "ctrl-[ A space { enter"],
+      "alt-l": ["workspace::SendKeystrokes", "ctrl-[ A : enter"],
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
+      "v": "vim::ToggleVisualBlock",
       "ctrl-a": "editor::SelectAll",
       "alt-j": ["workspace::SendKeystrokes", "3 j"],
-      "alt-k": ["workspace::SendKeystrokes", "3 k"]
-    }
+      "alt-k": ["workspace::SendKeystrokes", "3 k"],
+    },
   },
   {
     "context": "Editor && !menu",
     "bindings": {
       "ctrl-c": "editor::Copy", // vim default: return to normal mode
-      "ctrl-v": "editor::Paste" // vim default: visual block mode
-    }
+      "ctrl-v": "editor::Paste", // vim default: visual block mode
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
       "ctrl-s": "project_symbols::Toggle",
-      "shift shift": "file_finder::Toggle"
-    }
+      "shift shift": "file_finder::Toggle",
+    },
   },
   {
     "context": "(VimControl && !menu)",
     "bindings": {
-      "ctrl-t": "pane::GoBack"
-    }
-  }
+      "ctrl-t": "pane::GoBack",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-k": null,
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-w": null,
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-w": null,
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-/": "workspace::NewSearch",
+    },
+  },
 ]
 ```
 

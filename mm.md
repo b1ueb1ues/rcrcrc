@@ -60,6 +60,7 @@ sudo apt-get install --reinstall gnome-control-center
 
 
 ```
+sudo apt install language-selector-common
 /etc/fonts/conf.d/64-language-selector-prefer.conf
 
 %sudo  ALL=(ALL) NOPASSWD: ALL
